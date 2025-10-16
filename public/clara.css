@@ -1,0 +1,68 @@
+/* C.L.A.R.A. AI Chat Styles */
+#clara-chat-sidebar {
+    font-family: 'Inter', sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+.chat-bubble-user {
+    background-color: #65a30d; /* lime-600 */
+    color: white;
+}
+.chat-bubble-ai {
+    background-color: #f3f4f6; /* gray-100 */
+    color: #1f2937; /* gray-800 */
+}
+.chat-bubble {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(101, 163, 13, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(101, 163, 13, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(101, 163, 13, 0);
+    }
+}
+.recording {
+    animation: pulse-ring 1.5s infinite;
+}
+/* Enhanced Thinking Indicator */
+.thinking {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.thinking .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4b5563; /* gray-600 */
+    margin: 0 2px;
+    animation: dot-bounce 1.4s infinite ease-in-out both;
+}
+
+.thinking .dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.thinking .dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes dot-bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}

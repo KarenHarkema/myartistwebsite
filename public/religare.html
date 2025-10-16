@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Harkema | Religare Exhibition</title>
+    <!-- Load Tailwind CSS -->
+    <link href="output.css" rel="stylesheet">
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Custom Styles -->
+    <link href="main.css" rel="stylesheet">
+    <link href="clara.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<!-- Main container with light background and dark text -->
+<body class="bg-body-bg text-gray-800 antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky-header bg-black/95 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-light tracking-tight text-slate-50 hover:text-lime-200 transition duration-300">
+                        Karen Harkema
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Home</a>
+                    <a href="religare.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300 border-b-2 border-lime-700">Exhibition Work</a>
+                    <a href="about.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Artist Profile</a>
+                    <div class="relative group">
+                        <button class="text-slate-50 group-hover:text-lime-200 font-light transition duration-300 flex items-center">
+                            Catalogues
+                            <svg class="ml-1 h-5 w-5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-0 pt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block z-20">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Exhibition Catalogue</a>
+                                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Studio Workbook</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-lime-700 hover:text-lime-200 focus:outline-none  rounded-lg p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 bg-white/95 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-lime-700 hover:text-lime-500 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="religare.html" class="text-lime-700 bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Exhibition Work</a>
+                <a href="about.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Artist Profile</a>
+                <p class="text-lime-700 px-3 py-2 text-base font-bold">Catalogues</p>
+                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Exhibition Catalogue</a>
+                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Studio Workbook</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="hero" class="relative h-[85vh] md:h-[65vh] flex items-center justify-center bg-gray-50 overflow-hidden border-b border-gray-200">
+            <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('img/multibanner.png');"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl">
+                <h1 class="text-7xl sm:text-8xl lg:text-9xl font-light tracking-widest leading-none mb-2 font-sans uppercase text-lime-600 drop-shadow-xl"></h1>
+            </div>
+        </section>
+
+        <section id="tagline-cta" class="py-4 md:py-6 bg-body-bg text-gray-800 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="mt-4 text-5xl sm:text-4xl lg:text-5xl text-lime-500 font-light tracking-wider mb-4">Religare - Dia Logos with the Machine</p>
+                <p class="mt-4 text-2xl sm:text-3xl text-gray-800 font-light tracking-wider mb-4">Artist Statement</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-10">Exploring the intersection of organic forms and technological structures through mixed media art.</p>
+                <div id="art-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-12">
+                    <!-- Images will be inserted here by the script -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Light Charcoal) -->
+    <footer class="bg-gray-100 py-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm font-sans">
+            &copy; 2025 Karen Harkema Art. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP STRUCTURE -->
+    <div id="artwork-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900 bg-opacity-80 p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform transition-transform duration-300 scale-95" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white">
+                <h2 id="modal-title" class="text-3xl font-serif font-bold text-gray-900">Artwork Title</h2>
+                <button id="modal-close-button" class="text-gray-500 hover:text-gray-900 p-2 rounded-full transition duration-150">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+                <div class="md:col-span-1">
+                    <img id="modal-image" src="" alt="Artwork Image" class="w-full h-auto object-cover rounded-lg shadow-md">
+                </div>
+                <div class="md:col-span-1 text-left">
+                    <p id="modal-year" class="text-custom-gold text-xl mb-4 font-sans font-medium">Year</p>
+                    <div class="h-px bg-gray-200 w-1/4 mb-4"></div>
+                    <p id="modal-description" class="text-gray-700 text-base font-serif leading-relaxed">Description goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- C.L.A.R.A. AI Assistant -->
+    <div id="clara-container">
+        <!-- Floating Button with Tooltip -->
+        <div class="fixed bottom-6 right-6 z-[60] group">
+            <button id="clara-open-btn" class="w-16 h-16 rounded-full shadow-lg transition-transform transform group-hover:scale-110 overflow-hidden border-2 border-lime-500">
+                 <img id="clara-btn-pic" src="" alt="Open C.L.A.R.A. Chat" class="w-full h-full object-cover">
+            </button>
+            <div class="absolute right-full top-1/2 -translate-y-1/2 mr-4 w-max whitespace-nowrap bg-gray-800 text-white text-sm rounded-md shadow-lg px-3 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                Click to chat with C.L.A.R.A.
+            </div>
+        </div>
+
+        <!-- Chat Sidebar -->
+        <div id="clara-chat-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col z-[70] transform translate-x-full">
+            <!-- Header -->
+            <div class="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+                <div class="flex items-center space-x-3">
+                    <img id="ai-profile-pic" src="" alt="C.L.A.R.A. Profile Picture" class="w-10 h-10 rounded-full object-cover border-2 border-lime-500">
+                    <div>
+                        <h1 id="ai-name-header" class="text-lg font-bold text-gray-800"></h1>
+                        <p id="ai-subtitle" class="text-xs text-gray-500"></p>
+                    </div>
+                </div>
+                <button id="clara-close-btn" class="text-gray-500 hover:text-gray-900 p-2 rounded-full">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Chat Area -->
+            <div id="chat-area" class="flex-1 p-4 overflow-y-auto bg-white">
+                 <div class="flex justify-start">
+                    <div class="chat-bubble chat-bubble-ai">
+                        Hello! I'm C.L.A.R.A. How can I help you explore the 'Religare' exhibition today?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-3 border-t border-gray-200 bg-gray-50 relative">
+                <div id="voice-input-area" class="flex flex-col items-center justify-center h-full">
+                    <button id="mic-btn" class="bg-lime-600 hover:bg-lime-700 text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-200 transform hover:scale-110">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                    </button>
+                    <p id="mic-status" class="text-xs text-gray-500 mt-2">Tap the mic to speak</p>
+                </div>
+                <div id="text-input-area" class="hidden">
+                     <div class="flex items-center bg-gray-200 rounded-xl p-1">
+                        <input type="text" id="user-input" class="flex-1 bg-transparent text-gray-800 placeholder-gray-500 focus:outline-none px-3" placeholder="Type a message...">
+                        <button id="send-btn" class="bg-lime-600 hover:bg-lime-700 text-white font-bold p-2 rounded-lg transition-colors">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                </div>
+                <button id="toggle-input-btn" class="absolute bottom-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
+                    <svg id="keyboard-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2z"></path><line x1="8" y1="11" x2="8" y2="11"></line><line x1="12" y1="11" x2="12" y2="11"></line><line x1="16" y1="11" x2="16" y2="11"></line><line x1="10" y1="15" x2="14" y2="15"></line></svg>
+                    <svg id="mic-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                </button>
+            </div>
+        </div>
+        <audio id="audio-player" class="hidden"></audio>
+    </div>
+
+</body>
+</html>

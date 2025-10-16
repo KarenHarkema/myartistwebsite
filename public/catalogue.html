@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Harkema | Catalogues</title>
+    <!-- Load Tailwind CSS -->
+    <link href="output.css" rel="stylesheet">
+    <!-- Load Newsreader font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Load PDF.js library from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <link href="main.css" rel="stylesheet">
+    <link href="pdfreader.css" rel="stylesheet">
+    
+</head>
+<!-- Main container with light background and dark text -->
+<body class="bg-body-bg text-gray-800 antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky-header bg-black/95 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-light tracking-tight text-slate-50 hover:text-lime-200 transition duration-300">
+                        Karen Harkema
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Home</a>
+                    <a href="religare.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Exhibition Work</a>
+                    <a href="about.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Artist Profile</a>
+                    <div class="relative group">
+                        <button class="text-slate-50 group-hover:text-lime-200 font-light transition duration-300 flex items-center border-b-2 border-lime-700">
+                            Catalogues
+                            <svg class="ml-1 h-5 w-5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-0 pt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block z-20">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Exhibition Catalogue</a>
+                                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Studio Workbook</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-lime-700 hover:text-lime-200 focus:outline-none  rounded-lg p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 bg-white/95 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-lime-700 hover:text-lime-500 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="religare.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Exhibition Work</a>
+                <a href="about.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Artist Profile</a>
+                <p class="text-lime-700 px-3 py-2 text-base font-bold">Catalogues</p>
+                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Exhibition Catalogue</a>
+                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Studio Workbook</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: PDF Book Viewer -->
+    <main class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Loading Indicator -->
+            <div id="loader" class="mx-auto my-12">
+                <div class="loader"></div>
+                <p class="mt-4 text-gray-600">Loading Catalogue...</p>
+            </div>
+            
+            <!-- Book Viewer -->
+            <div id="book-viewer" class="book-container w-full flex justify-center items-center hidden">
+                <button id="side-prev-btn" title="Previous Page" class="side-nav absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-black/20 text-white p-2 rounded-full hover:bg-black/40 transition-colors hidden md:block">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                <div class="book grid grid-cols-1 md:grid-cols-2 gap-0">
+                     <div id="page-left" class="page page-left relative flex justify-center items-center">
+                        <div id="info-panel" class="p-8 text-left">
+                           <h1 id="catalogue-title" class="text-4xl font-light text-gray-900 font-serif mb-4">Catalogue</h1>
+                           <p id="instruction-text" class="max-w-xs text-base text-gray-500">Browse the digital catalogue. Use the arrows to turn the pages or enter a page number to jump directly to it.</p>
+                           <div class="mt-8">
+                                <a id="download-link" href="#" download class="inline-flex items-center text-custom-gold hover:text-lime-700 font-semibold transition-colors">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                    Download Catalogue
+                                </a>
+                            </div>
+                        </div>
+                        <canvas id="canvas-left" class="absolute top-0 left-0 w-full h-full"></canvas>
+                    </div>
+                     <div id="page-right" class="page page-right">
+                        <canvas id="canvas-right"></canvas>
+                    </div>
+                </div>
+
+                <button id="side-next-btn" title="Next Page" class="side-nav absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-black/20 text-white p-2 rounded-full hover:bg-black/40 transition-colors hidden md:block">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Controls Panel -->
+        <div id="top-controls" class="hidden flex items-center justify-center space-x-1 p-2 rounded-full bg-white/80 border border-gray-200 shadow-lg backdrop-blur-md">
+            <button id="home-btn" title="First Page" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            </button>
+            <button id="prev-page-btn" title="Previous Page" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <div class="flex items-center space-x-1 text-gray-700">
+                <input type="number" id="page-num-input" class="w-14 p-1 text-center border border-gray-300 rounded-md focus:ring-custom-gold focus:border-custom-gold text-base" aria-label="Current Page">
+                <span id="page-count-label" class="text-sm px-1">of N</span>
+            </div>
+            <button id="next-page-btn" title="Next Page" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <div class="w-px h-5 bg-gray-300 mx-2"></div>
+            <button id="zoom-out-btn" title="Zoom Out" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"></path></svg>
+            </button>
+            <button id="zoom-in-btn" title="Zoom In" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+               <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3h-6"></path></svg>
+            </button>
+            <button id="fullscreen-btn" title="Fullscreen" class="p-2 rounded-full hover:bg-gray-200 transition-colors">
+                <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4h4m12 4V4h-4M4 16v4h4m12-4v4h-4"></path></svg>
+             </button>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm font-sans">
+            &copy; 2025 Karen Harkema Art. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // --- Get URL Parameters ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const catalogueTitle = urlParams.get('title') || 'Exhibition Catalogue';
+        const pdfFile = urlParams.get('pdf');
+
+        // --- Element Selection ---
+        const mainElement = document.querySelector('main');
+        const loader = document.getElementById('loader');
+        const bookViewer = document.getElementById('book-viewer');
+        const bookElement = document.querySelector('.book');
+        const topControls = document.getElementById('top-controls');
+        const canvasLeft = document.getElementById('canvas-left');
+        const canvasRight = document.getElementById('canvas-right');
+        const infoPanel = document.getElementById('info-panel');
+        const catalogueTitleEl = document.getElementById('catalogue-title');
+        const pageLeftDiv = document.getElementById('page-left');
+        const pageRightDiv = document.getElementById('page-right');
+        const downloadLink = document.getElementById('download-link');
+        const homeBtn = document.getElementById('home-btn');
+        const prevPageBtn = document.getElementById('prev-page-btn');
+        const nextPageBtn = document.getElementById('next-page-btn');
+        const sidePrevBtn = document.getElementById('side-prev-btn');
+        const sideNextBtn = document.getElementById('side-next-btn');
+        const pageNumInput = document.getElementById('page-num-input');
+        const pageCountLabel = document.getElementById('page-count-label');
+        const zoomInBtn = document.getElementById('zoom-in-btn');
+        const zoomOutBtn = document.getElementById('zoom-out-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+        // --- State Variables ---
+        let pdfDoc = null;
+        let currentPage = 1;
+        let totalPages = 0;
+        let isRendering = false;
+        let currentScale = 1.5;
+        let pageAspectRatio = 1.414; // Default A4-like ratio
+
+        // --- Core Functions ---
+        async function renderPage(pageNum, canvas) {
+            isRendering = true;
+            try {
+                const page = await pdfDoc.getPage(pageNum);
+                const viewport = page.getViewport({ scale: currentScale });
+                
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                await page.render(renderContext).promise;
+            } catch (error) {
+                console.error(`Failed to render page ${pageNum}:`, error);
+            } finally {
+                isRendering = false;
+            }
+        }
+
+        async function updateBookView() {
+            if (isRendering) return;
+
+            // Set aspect ratio before rendering
+            if (document.fullscreenElement) {
+                 bookElement.style.height = '85vh';
+                 bookElement.style.maxHeight = '85vh';
+                 bookElement.style.aspectRatio = '';
+            } else if (currentPage === 1 || currentPage === totalPages) {
+                bookElement.style.aspectRatio = pageAspectRatio;
+                bookElement.style.height = '';
+            } else {
+                bookElement.style.aspectRatio = 2 * pageAspectRatio;
+                bookElement.style.height = '';
+            }
+
+            if (currentPage === 1) {
+                pageLeftDiv.classList.add('bg-transparent', 'shadow-none');
+                pageLeftDiv.classList.remove('bg-white');
+                canvasLeft.style.display = 'none';
+                infoPanel.style.display = 'block';
+                pageRightDiv.style.visibility = 'visible';
+                await renderPage(1, canvasRight);
+            } 
+            else if (currentPage < totalPages) {
+                pageLeftDiv.classList.remove('bg-transparent', 'shadow-none');
+                pageLeftDiv.classList.add('bg-white');
+                canvasLeft.style.display = 'block';
+                infoPanel.style.display = 'none';
+                pageRightDiv.style.visibility = 'visible';
+                const leftPage = (currentPage % 2 !== 0) ? currentPage - 1 : currentPage;
+                await Promise.all([
+                    renderPage(leftPage, canvasLeft),
+                    renderPage(leftPage + 1, canvasRight)
+                ]);
+            } 
+            else {
+                 pageLeftDiv.classList.remove('bg-transparent', 'shadow-none');
+                 pageLeftDiv.classList.add('bg-white');
+                 canvasLeft.style.display = 'block';
+                 infoPanel.style.display = 'none';
+                 pageRightDiv.style.visibility = 'hidden';
+                 await renderPage(totalPages, canvasLeft);
+            }
+            pageNumInput.value = currentPage;
+
+            // Update all buttons
+            const isFirstPage = currentPage <= 1;
+            const isLastPage = currentPage >= totalPages;
+            prevPageBtn.disabled = isFirstPage;
+            homeBtn.disabled = isFirstPage;
+            sidePrevBtn.disabled = isFirstPage;
+            nextPageBtn.disabled = isLastPage;
+            sideNextBtn.disabled = isLastPage;
+            
+            zoomInBtn.disabled = currentScale >= 3.0; // Max zoom
+            zoomOutBtn.disabled = currentScale <= 0.5; // Min zoom
+        }
+
+        // --- Event Handlers ---
+        function goToPrevPage() {
+            if (currentPage <= 1) return;
+            if (currentPage === 2) {
+                currentPage = 1;
+            } else {
+                 currentPage = (currentPage % 2 === 0) ? currentPage - 2 : currentPage - 1;
+                 if (currentPage < 1) currentPage = 1;
+            }
+            updateBookView();
+        }
+
+        function goToNextPage() {
+            if (currentPage >= totalPages) return;
+             if (currentPage === 1) {
+                currentPage = 2;
+            } else {
+                currentPage = (currentPage % 2 === 0) ? currentPage + 2 : currentPage + 1;
+                 if (currentPage > totalPages) currentPage = totalPages;
+            }
+            updateBookView();
+        }
+        
+        function goToPage(e) {
+            const pageNum = parseInt(e.target.value);
+            if(pageNum >= 1 && pageNum <= totalPages) {
+                currentPage = (pageNum % 2 === 0 || pageNum === 1) ? pageNum : pageNum - 1;
+                if (currentPage > totalPages) currentPage = totalPages;
+                updateBookView();
+            }
+        }
+
+        function goToFirstPage() {
+            if (currentPage === 1) return;
+            currentPage = 1;
+            updateBookView();
+        }
+
+        function zoomIn() {
+            if (currentScale >= 3.0) return;
+            currentScale += 0.25;
+            updateBookView();
+        }
+
+        function zoomOut() {
+            if (currentScale <= 0.5) return;
+            currentScale -= 0.25;
+            updateBookView();
+        }
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                mainElement.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // --- Initialization ---
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js`;
+
+        // Update Page Titles
+        document.title = `Karen Harkema | ${catalogueTitle}`;
+        catalogueTitleEl.textContent = catalogueTitle;
+
+        if (!pdfFile) {
+            loader.innerHTML = `<p class="text-red-600 font-semibold">Error: No catalogue specified in the URL.</p><p class="text-gray-600 mt-2">Please ensure the link includes a '?pdf=filename.pdf' parameter.</p>`;
+            bookViewer.classList.add('hidden');
+            topControls.style.display = 'none';
+        } else {
+            const pdfUrl = `pdfs/${pdfFile}`;
+
+            // Set download link
+            downloadLink.href = pdfUrl;
+            downloadLink.download = pdfFile;
+
+            pdfjsLib.getDocument(pdfUrl).promise.then(doc => {
+                pdfDoc = doc;
+                totalPages = pdfDoc.numPages;
+                pageCountLabel.textContent = `of ${totalPages}`;
+                return doc.getPage(1);
+            }).then(page => {
+                const viewport = page.getViewport({ scale: 1.0 });
+                pageAspectRatio = viewport.width / viewport.height;
+                
+                loader.classList.add('hidden');
+                bookViewer.classList.remove('hidden');
+                topControls.classList.remove('hidden');
+                
+                // Set initial position for draggable controls (top center)
+                topControls.style.left = `calc(50% - ${topControls.offsetWidth / 2}px)`;
+                topControls.style.top = '80px'; // Approx. below nav bar
+
+                updateBookView(); // Initial render
+            }).catch(err => {
+                console.error("Error loading PDF:", err);
+                loader.innerHTML = `<p class="text-red-600 font-semibold">Error: Failed to load the catalogue.</p><p class="text-gray-600 mt-2">Please check that the file path '${pdfUrl}' is correct and the file exists.</p>`;
+                topControls.style.display = 'none';
+            });
+        }
+
+        // --- Draggable Controls Logic ---
+        let dragOffsetX, dragOffsetY, isDragging = false;
+        const startDrag = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'svg' || e.target.tagName === 'path' || e.target.tagName === 'SPAN') {
+                return;
+            }
+            e.preventDefault();
+            isDragging = true;
+            const event = e.touches ? e.touches[0] : e;
+            dragOffsetX = event.clientX - topControls.offsetLeft;
+            dragOffsetY = event.clientY - topControls.offsetTop;
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchmove', onDrag, { passive: false });
+            document.addEventListener('touchend', endDrag);
+        };
+
+        const onDrag = (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const event = e.touches ? e.touches[0] : e;
+            let newX = event.clientX - dragOffsetX;
+            let newY = event.clientY - dragOffsetY;
+            
+            const container = document.fullscreenElement || document.body;
+            newX = Math.max(0, Math.min(newX, container.clientWidth - topControls.offsetWidth));
+            newY = Math.max(0, Math.min(newY, container.clientHeight - topControls.offsetHeight));
+
+            topControls.style.left = `${newX}px`;
+            topControls.style.top = `${newY}px`;
+        };
+
+        const endDrag = () => {
+            isDragging = false;
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', endDrag);
+            document.removeEventListener('touchmove', onDrag);
+            document.removeEventListener('touchend', endDrag);
+        };
+
+        topControls.addEventListener('mousedown', startDrag);
+        topControls.addEventListener('touchstart', startDrag, { passive: true });
+        
+        // --- Attach Event Listeners ---
+        homeBtn.addEventListener('click', goToFirstPage);
+        prevPageBtn.addEventListener('click', goToPrevPage);
+        nextPageBtn.addEventListener('click', goToNextPage);
+        sidePrevBtn.addEventListener('click', goToPrevPage);
+        sideNextBtn.addEventListener('click', goToNextPage);
+        pageNumInput.addEventListener('change', goToPage);
+        zoomInBtn.addEventListener('click', zoomIn);
+        zoomOutBtn.addEventListener('click', zoomOut);
+        fullscreenBtn.addEventListener('click', toggleFullScreen);
+        
+        document.addEventListener('fullscreenchange', () => {
+            setTimeout(updateBookView, 150);
+        });
+        
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

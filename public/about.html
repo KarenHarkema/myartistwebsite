@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Harkema | Artist Profile</title>
+    <!-- Load Tailwind CSS -->
+    
+    <link href="output.css" rel="stylesheet">
+    <!-- Load Newsreader font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Website CSS -->    
+    <link href="main.css" rel="stylesheet">
+</head>
+<!-- Main container with light background and dark text -->
+<body class="bg-body-bg text-gray-800 antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky-header bg-black/95 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-light tracking-tight text-slate-50 hover:text-lime-200 transition duration-300">
+                        Karen Harkema
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Home</a>
+                    <a href="religare.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Exhibition Work</a>
+                    <a href="about.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300 border-b-2 border-lime-700">Artist Profile</a>
+                    <div class="relative group">
+                        <button class="text-slate-50 group-hover:text-lime-200 font-light transition duration-300 flex items-center">
+                            Catalogues
+                            <svg class="ml-1 h-5 w-5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-0 pt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block z-20">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Exhibition Catalogue</a>
+                                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Studio Workbook</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-lime-700 hover:text-lime-200 focus:outline-none  rounded-lg p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 bg-white/95 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-lime-700 hover:text-lime-500 hover:bg-gray-200 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="religare.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Exhibition Work</a>
+                <a href="about.html" class="text-lime-700 bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Artist Profile</a>
+                <p class="text-lime-700 px-3 py-2 text-base font-bold">Catalogues</p>
+                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Exhibition Catalogue</a>
+                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Studio Workbook</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: Big Image with Name centered over it -->
+    <section id="hero" class="relative h-[85vh] md:h-[65vh] flex items-center justify-center bg-gray-50 overflow-hidden border-b border-gray-200">
+        <!-- Large Image Background: Using the uploaded image -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center" 
+             style="background-image: url('img/multibanner.png');">
+        </div>
+
+        <!-- Centered Name Only (no background overlay, light text for high contrast) -->
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <!-- Changed font-serif to font-sans to match navigation bar font -->
+            <h1 class="text-7xl sm:text-8xl lg:text-9xl font-light tracking-widest leading-none mb-2 font-sans uppercase text-lime-600 drop-shadow-xl">
+                <!--Religare: Dia Logos with the Machine--> 
+            </h1>
+        </div>
+    </section>
+
+    <!-- About Section -->
+
+    <!-- Footer (Light Charcoal) -->
+    <footer class="bg-gray-100 py-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm font-sans">
+            &copy; 2025 Karen Harkema Art. All Rights Reserved.
+        </div>
+    </footer>
+
+     
+
+    <script>
+        
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

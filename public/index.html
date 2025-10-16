@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Harkema | Home</title>
+    <!-- Tailwind CSS -->
+    <link href="output.css" rel="stylesheet">
+    <!-- Load Newsreader font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Website CSS -->    
+    <link href="main.css" rel="stylesheet">
+     
+</head>
+<!-- Main container with light background and dark text -->
+<body class="bg-body-bg text-gray-800 antialiased">
+     
+    <!-- Navigation Bar -->
+    <header class="sticky-header bg-black/95 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-light tracking-tight text-slate-50 hover:text-lime-200 transition duration-300">
+                        Karen Harkema
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-10">
+                    <a href="index.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300 border-b-2 border-lime-700">Home</a>
+                    <a href="religare.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Exhibition Work</a>
+                    <a href="about.html" class="text-slate-50 hover:text-lime-200 font-light transition duration-300">Artist Profile</a>
+                    <div class="relative group">
+                        <button class="text-slate-50 group-hover:text-lime-200 font-light transition duration-300 flex items-center">
+                            Catalogues
+                            <svg class="ml-1 h-5 w-5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-0 pt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block z-20">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Exhibition Catalogue</a>
+                                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-lime-700" role="menuitem">Studio Workbook</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-lime-700 hover:text-lime-200 focus:outline-none  rounded-lg p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden pb-4 bg-white/95 border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-lime-700 hover:text-lime-500 bg-gray-200 px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</a>
+                <a href="religare.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Exhibition Work</a>
+                <a href="about.html" class="text-lime-700 hover:bg-gray-200 hover:text-lime-500 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Artist Profile</a>
+                <p class="text-lime-700 px-3 py-2 text-base font-bold">Catalogues</p>
+                <a href="catalogue.html?title=Exhibition%20Catalogue&pdf=religare-catalogue.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Exhibition Catalogue</a>
+                <a href="catalogue.html?title=Studio%20Workbook&pdf=religare-workbook.pdf" class="text-lime-600 hover:bg-gray-200 hover:text-lime-500 block pl-8 pr-3 py-2 rounded-md text-base transition duration-300">Studio Workbook</a>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Hero Section: Big Image with Name centered over it -->
+    <section id="hero" class="relative h-[85vh] md:h-[65vh] flex items-center justify-center bg-gray-50 overflow-hidden border-b border-gray-200">
+        <!-- Large Image Background: Using the uploaded image -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center" 
+             style="background-image: url('img/multibanner.png');">
+        </div>
+        
+    </section>
+
+    <!-- New section for Tagline and Portfolio Button, placed directly below the image -->
+    <section id="tagline-cta" class="py-4 md:py-6 bg-body-bg text-gray-800 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mt-4 text-5xl sm:text-4xl lg:text-5xl text-lime-500 font-light tracking-wider mb-4">            
+                <!-- class="text-3xl font-light tracking-tight text-slate-50 hover:text-lime-200 transition duration-300"> -->
+                Religare 
+            </p>
+            <p class="mt-4 text-2xl sm:text-3xl text-gray-800 font-light tracking-wider mb-4">
+                Dia Logos with the Machine 
+            </p>
+            <!-- Default introductory text added here -->
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-10">
+                Exploring the intersection of organic forms and technological structures through mixed media art.
+            </p>
+            
+
+            <!-- Image Grid is now dynamically rendered by JavaScript -->
+            <div id="art-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-12">
+                <!-- Images will be inserted here by the script -->
+            </div>
+            <!--
+            <a href="portfolio.html" class="inline-block px-10 py-3 border-2 border-custom-gold text-base font-medium rounded-xl text-custom-gold hover:text-white bg-transparent hover:bg-custom-gold shadow-md transition duration-300 transform hover:scale-[1.02] font-sans focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-gold">
+                View Portfolio Work
+            </a>
+            -->
+        </div>
+    </section>
+
+    <!-- Footer (Light Charcoal) -->
+    <footer class="bg-gray-100 py-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm font-sans">
+            &copy; 2025 Karen Harkema Art. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP STRUCTURE (Hidden by default) -->
+    <div id="artwork-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900 bg-opacity-80 p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform transition-transform duration-300 scale-95" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white">
+                <h2 id="modal-title" class="text-3xl font-serif font-bold text-gray-900">Artwork Title</h2>
+                <button id="modal-close-button" class="text-gray-500 hover:text-gray-900 p-2 rounded-full transition duration-150">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+                <!-- Image Container -->
+                <div class="md:col-span-1">
+                    <img id="modal-image" src="" alt="Artwork Image" class="w-full h-auto object-cover rounded-lg shadow-md">
+                </div>
+                <!-- Text Details Container -->
+                <div class="md:col-span-1 text-left">
+                    <p id="modal-year" class="text-custom-gold text-xl mb-4 font-sans font-medium">Year</p>
+                    <div class="h-px bg-gray-200 w-1/4 mb-4"></div>
+                    <p id="modal-description" class="text-gray-700 text-base font-serif leading-relaxed">Description goes here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Artwork Data ---
+        const artworks = [
+            { id: 1, title: "Biomorphic Study I", year: "2023", description: "Mixed media on canvas, exploring cellular life and decay.", src: "img/work 10.png?text=Artwork+1" },
+            { id: 2, title: "The Weaver's Knot", year: "2022", description: "Sculpture made of woven recycled plastics and resin.", src: "img/work 11.png?text=Artwork+2" },
+            { id: 3, title: "Luminescent Garden", year: "2023", description: "Digital print on aluminum, finished with a UV-resistant clear coat.", src: "img/work 12.png?text=Artwork+3" },
+            { id: 4, title: "Echoes of the Deep", year: "2021", description: "Oil on board, abstract representation of deep-sea hydrothermal vents.", src: "img/work 12.png?text=Artwork+4" },
+            { id: 5, title: "Fragmented Memory", year: "2024", description: "Assemblage of found objects and aged textiles, sealed in glass.", src: "img/work 12.png?text=Artwork+5" },
+            { id: 6, title: "The Circuit Tree", year: "2022", description: "Installation piece using discarded electronic components and wiring.", src: "img/work 12.png?text=Artwork+6" },
+            { id: 7, title: "Terraforming Dream", year: "2023", description: "Series of lithographs on handmade paper, exploring imagined alien landscapes.", src: "img/work 12.png?text=Artwork+7" },
+            { id: 8, title: "Interference Pattern", year: "2024", description: "Large scale acrylic and charcoal on untreated wood panel.", src: "img/work 12.png?text=Artwork+8" },
+            { id: 9, title: "Morphic Resonance", year: "2021", description: "Interactive light sculpture controlled by proximity sensors.", src: "img/work 12.png?text=Artwork+9" },
+            { id: 10, title: "Confluence", year: "2023", description: "Pigment transfer on polished stone with gold leaf accents.",src: "img/work 12.png?text=Artwork+10" },
+            { id: 11, title: "Ephemeral Structure", year: "2022", description: "Microscopic photography printed on silk, mounted in a custom frame.", src: "img/work 12.png?text=Artwork+11" },
+            { id: 12, title: "Kinetic Bloom", year: "2024", description: "Small mechanized sculpture that opens and closes its petals every hour.",src: "img/work 12.png?text=Artwork+12" },
+        ];
+
+        // --- Modal Functions ---
+        const modal = document.getElementById('artwork-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalYear = document.getElementById('modal-year');
+        const modalDescription = document.getElementById('modal-description');
+        const modalImage = document.getElementById('modal-image');
+        const modalCloseButton = document.getElementById('modal-close-button');
+
+        function showModal(artwork) {
+            modalTitle.textContent = artwork.title;
+            modalYear.textContent = artwork.year;
+            modalDescription.textContent = artwork.description;
+            modalImage.src = artwork.src;
+            modalImage.alt = artwork.title;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = ''; // Restore background scrolling
+        }
+
+        // Attach close event listeners
+        modalCloseButton.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            // Close if clicked outside the content box
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+        // --- Grid Generation and Listener Attachment ---
+        const artGridContainer = document.getElementById('art-grid-container');
+
+        artworks.forEach((art) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = "overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer";
+            
+            const image = document.createElement('img');
+            image.src = art.src;
+            image.alt = art.title;
+            image.className = "w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300";
+            
+            // Attach click handler to open the modal
+            wrapper.addEventListener('click', () => showModal(art));
+
+            wrapper.appendChild(image);
+            artGridContainer.appendChild(wrapper);
+        });
+
+        // --- Mobile Menu Toggle ---
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
